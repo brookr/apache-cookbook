@@ -8,15 +8,8 @@ package 'httpd' do
   action :install
 end
 
-file '/var/www/html/index.html' do
-  content "
-  <html>
-    <body>
-      <h1>Yo, world!</h1>
-      <p>You found me! Let me introduce myself. I am #{node['hostname']} @ #{node['ipaddress']}.  
-    </body>
-  </html>
-"
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
 end
 
 service 'httpd' do
