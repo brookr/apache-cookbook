@@ -16,5 +16,5 @@ describe port(80) do
 end
 
 describe command('curl localhost') do
-  its('stdout') { should match 'world' }
+  its('stdout') { should match /@ \d+\.\d+\.\d+\.\d+/ }
 end
